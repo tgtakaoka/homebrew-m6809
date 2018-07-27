@@ -4,15 +4,11 @@ class BinutilsM6809 < Formula
   url "https://ftpmirror.gnu.org/gcc/gcc-4.3.6/gcc-4.3.6.tar.bz2"
   sha256 "f3765cd4dcceb4d42d46f0d53471d7cedbad50f2112f0312c1dcc9c41eea9810"
   version "5.1.1"
-  revision 20170517
+  revision 20180727
 
   patch do
-    url "https://gitlab.com/tgtakaoka/gcc6809/raw/gcc6809-patch/gcc6809-4.3.6-dftools-20170517.patch.gz"
-    sha256 "dc8bf8be92ef2fd3adcdead5930aaa526a556f23091b4f9c4a4a608b5e63ea6b"
-  end
-  patch do
-    url "https://raw.githubusercontent.com/tgtakaoka/homebrew-gcc6809/fix-macos-build/patches/fix-ranlib.patch"
-    sha256 "952f025ac140859df7e373cd6062340387661103ea414808787cdf50b3c528fd"
+    url "https://gitlab.com/tgtakaoka/gcc6809/raw/gcc6809-patch/gcc6809-4.3.6-dftools-20180727.patch.gz"
+    sha256 "29ef896fa00efae81066d070de842e6834a8c232abbbef73cedd6834729e1860"
   end
 
   def install
