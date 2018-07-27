@@ -38,20 +38,14 @@ class GccM6809 < Formula
                 "run_binutil = $(prefix)/bin/",
                 "run_binutil = #{HOMEBREW_PREFIX}/bin/"
       inreplace "Makefile", "$(PWD)", "#{buildpath}/build-6809"
-      system "make",
-             "prefix=#{prefix}",
-             "GCC_LANGUAGES=c",
-             "config"
-      system "make",
-             "prefix=#{prefix}",
-             "GCC_LANGUAGES=c",
-             "build"
+      args = []
+      args << "prefix=#{prefix}"
+      args << "GCC_LANGUAGES=c"
+      args << "SUDO="
+      system "make", *args, "config"
+      system "make", *args, "build"
       ENV.deparallelize
-      system "make",
-             "prefix=#{prefix}",
-             "GCC_LANGUAGES=c",
-             "SUDO=",
-             "install"
+      system "make", *args, "install"
     end
 
     (lib/"libiberty.a").delete

@@ -10,20 +10,22 @@ class BinutilsM6809 < Formula
     url "https://gitlab.com/tgtakaoka/gcc6809/raw/gcc6809-patch/gcc6809-4.3.6-dftools-20170517.patch.gz"
     sha256 "dc8bf8be92ef2fd3adcdead5930aaa526a556f23091b4f9c4a4a608b5e63ea6b"
   end
+  patch do
+    url "https://raw.githubusercontent.com/tgtakaoka/homebrew-gcc6809/fix-macos-build/patches/fix-ranlib.patch"
+    sha256 "952f025ac140859df7e373cd6062340387661103ea414808787cdf50b3c528fd"
+  end
 
   def install
     target = "m6809-unknown-none"
     Dir.chdir "build-6809" do
       inreplace "Makefile", "$(PWD)", "#{buildpath}/build-6809"
-      system "make",
-             "prefix=#{prefix}",
-             "asm",
+      args = []
+      args << "prefix=#{prefix}"
+      args << "SUDO="
+      system "make", *args, "asm"
       ENV.deparallelize
-      system "make",
-             "prefix=#{prefix}",
-             "SUDO=",
-             "asm-install",
-             "binutils"
+      system "make", *args, "asm-install"
+      system "make", *args, "binutils"
     end
 
     (bin/target).install bin/"as6809"
