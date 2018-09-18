@@ -19,7 +19,7 @@ class GccM6809 < Formula
     url "https://git.savannah.gnu.org/git/config.git"
     patch do
       url "https://gitlab.com/tgtakaoka/gcc6809/raw/gcc6809-patch/config.sub-m6809.patch"
-      sha256 "1c1c256e05ce273c287eb27252f1247917fe7d40bcb86e9f48a1193990a62b79"
+      sha256 "2793f4421bf10eb9dee18af67df3c39ec61469d20ba347ed9dd0182d811131ff"
     end
   end
 
