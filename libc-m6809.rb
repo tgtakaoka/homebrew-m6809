@@ -3,7 +3,7 @@ class LibcM6809 < Formula
   homepage "https://sourceforge.net/projects/mspgcc/"
   url "ftp://sourceware.org/pub/newlib/newlib-1.15.0.tar.gz"
   sha256 "c4496102d38c59d1a47ddd5481af35caa1f65b76e2a94d9607737e17fd9e4465"
-  revision 20170508
+  revision 20190209
 
   depends_on "gcc-m6809"
 
@@ -15,8 +15,8 @@ class LibcM6809 < Formula
   resource "config" do
     url "https://git.savannah.gnu.org/git/config.git"
     patch do
-      url "https://gitlab.com/tgtakaoka/newlib-6809/raw/newlib-m6809-patch/config.sub-m6809.patch"
-      sha256 "2793f4421bf10eb9dee18af67df3c39ec61469d20ba347ed9dd0182d811131ff"
+      url "https://gitlab.com/tgtakaoka/gcc6809/raw/gcc6809-patch/config.sub-20190105-m6809.patch"
+      sha256 "2b23fa824a0ca2c89cb415c4c17e29063056f6fb96ffa10d680fecb7b7467bb1"
     end
   end
 
