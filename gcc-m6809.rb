@@ -3,7 +3,7 @@ class GccM6809 < Formula
   homepage "https://code.google.com/archive/p/gcc6809/"
   url "https://ftpmirror.gnu.org/gcc/gcc-4.3.6/gcc-4.3.6.tar.bz2"
   sha256 "f3765cd4dcceb4d42d46f0d53471d7cedbad50f2112f0312c1dcc9c41eea9810"
-  revision 20190209
+  revision 20190210
 
   depends_on "binutils-m6809"
   depends_on "mpfr" => :build if OS.mac?
@@ -11,8 +11,8 @@ class GccM6809 < Formula
   depends_on "libmpc" => :build if OS.mac?
 
   patch do
-    url "https://gitlab.com/tgtakaoka/gcc6809/raw/gcc6809-patch/gcc6809-4.3.6-dftools-20190209.patch.gz"
-    sha256 "d343be1a6288b95382d9208f4d4fd412163acee69b738ebd7494799b665b2a11"
+    url "https://gitlab.com/tgtakaoka/gcc6809/raw/gcc6809-patch/gcc6809-4.3.6-dftools-20190210.patch.gz"
+    sha256 "54dabbbbca87f08aeb5ebe056baec53145dc2358df5b6e420cc4867e89be7ce6"
   end
 
   resource "config" do
