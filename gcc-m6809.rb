@@ -1,5 +1,5 @@
 class GccM6809 < Formula
-  desc "GNU C ompiler for M6809 MPU"
+  desc "GNU C compiler for M6809 MPU"
   homepage "https://code.google.com/archive/p/gcc6809/"
   url "https://ftpmirror.gnu.org/gcc/gcc-4.3.6/gcc-4.3.6.tar.bz2"
   sha256 "f3765cd4dcceb4d42d46f0d53471d7cedbad50f2112f0312c1dcc9c41eea9810"
