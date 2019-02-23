@@ -48,10 +48,12 @@ class GccM6809 < Formula
       system "make", *args, "install"
     end
 
-    (lib/"libiberty.a").delete
+    (prefix/"info").rmtree
+    man.install Dir["#{prefix}/man/man1"]
+    (prefix/"man").rmtree
 
+    (lib/"libiberty.a").delete
     target_lib = HOMEBREW_PREFIX/"lib/#{target}/lib"
-    (lib/target).install Dir["#{prefix}/#{target}/lib/*"]
     (prefix/target/"lib").rmtree
     (prefix/target).install_symlink target_lib
 
