@@ -49,7 +49,7 @@ class GccM6809 < Formula
     end
 
     (prefix/"info").rmtree
-    man.install Dir["#{prefix}/man/man1"]
+    man.install Dir[prefix/"man/man1"]
     (prefix/"man").rmtree
 
     (lib/"libiberty.a").delete

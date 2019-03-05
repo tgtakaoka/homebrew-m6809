@@ -30,10 +30,12 @@ class LibcM6809 < Formula
 
     target = "m6809-unknown-none"
     Dir.chdir "build" do
-      inreplace "newlib.6809", "prefix:-/usr/local", "prefix:-#{prefix}"
-      inreplace "newlib.6809", "target:-m6809-sim-none", "target:-#{target}"
-      inreplace "newlib.6809", "sudo:-sudo", "sudo:-"
-      inreplace "newlib.6809", "${prefix}/bin/", "#{HOMEBREW_PREFIX}/bin/"
+      inreplace "newlib.6809" do |s|
+        s.gsub! "prefix:-/usr/local", "prefix:-#{prefix}"
+        s.gsub! "target:-m6809-sim-none", "target:-#{target}"
+        s.gsub! "sudo:-sudo", "sudo:-"
+        s.gsub! "${prefix}/bin/", "#{HOMEBREW_PREFIX}/bin/"
+      end
       # Homebrew set ENV["CC"] to the host compiler but it confuses newlib.
       ENV.delete("CC")
       system "sh", "newlib.6809", "config"
@@ -41,10 +43,8 @@ class LibcM6809 < Formula
       system "sh", "newlib.6809", "install"
     end
 
-    target_lib = lib/target/"lib"
-    target_lib.install Dir["#{prefix}/#{target}/lib/*"]
+    (lib/target).install_symlink prefix/target/"lib"
 
-    target_include = include/target/"include"
-    target_include.install Dir["#{prefix}/#{target}/include/*"]
+    (include/target).install_symlink prefix/target/"include"
   end
 end
