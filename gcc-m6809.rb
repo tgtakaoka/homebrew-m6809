@@ -3,7 +3,8 @@ class GccM6809 < Formula
   homepage "https://code.google.com/archive/p/gcc6809/"
   url "https://ftpmirror.gnu.org/gcc/gcc-4.3.6/gcc-4.3.6.tar.bz2"
   sha256 "f3765cd4dcceb4d42d46f0d53471d7cedbad50f2112f0312c1dcc9c41eea9810"
-  revision 20190307
+  version "4.3.6-20190307"
+  revision 1
 
   depends_on "binutils-m6809"
   depends_on "mpfr" => :build if OS.mac?
@@ -48,16 +49,20 @@ class GccM6809 < Formula
       system "make", *args, "install"
     end
 
+    # Move man1 under share/man and remove unnecessary files.
+    man.install prefix/"man/man1"
     (prefix/"info").rmtree
-    man.install Dir[prefix/"man/man1"]
     (prefix/"man").rmtree
-
     (lib/"libiberty.a").delete
-    target_lib = HOMEBREW_PREFIX/"lib/#{target}/lib"
+    # Remove empty target/lib directory not to confuse install_symlink below.
     (prefix/target/"lib").rmtree
-    (prefix/target).install_symlink target_lib
 
-    target_include = HOMEBREW_PREFIX/"include/#{target}/include"
-    (prefix/target).install_symlink target_include
+    # Create empty place holders for gcc-m6809 to refer libc-m6809.
+    (lib/target/"lib/.#{name}").write ''
+    (include/target/"include/.#{name}").write ''
+
+    # Create symlinks to libc-m6809.
+    (prefix/target).install_symlink "#{HOMEBREW_PREFIX}/lib/#{target}/lib"
+    (prefix/target).install_symlink "#{HOMEBREW_PREFIX}/include/#{target}/include"
   end
 end

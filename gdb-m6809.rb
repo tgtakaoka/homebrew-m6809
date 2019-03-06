@@ -3,7 +3,8 @@ class GdbM6809 < Formula
   homepage "http://www.6809.org.uk/dragon/m6809-gdb.shtml"
   url "https://ftpmirror.gnu.org/gdb/gdb-7.6.2.tar.bz2"
   sha256 "2f6a0e2ce1c66c9dedeb7f58a8d1298ad602ddcdaf15d23104e1f7832b96d0e8"
-  revision 20190223
+  version "7.6.2-20190223"
+  revision 1
 
   patch do
     url "https://gitlab.com/tgtakaoka/gdb6809/raw/gdb6809-patch/gdb6809-7.6.2-20190223.patch.gz"

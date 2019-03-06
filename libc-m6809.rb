@@ -3,7 +3,8 @@ class LibcM6809 < Formula
   homepage "https://sourceforge.net/projects/mspgcc/"
   url "ftp://sourceware.org/pub/newlib/newlib-1.15.0.tar.gz"
   sha256 "c4496102d38c59d1a47ddd5481af35caa1f65b76e2a94d9607737e17fd9e4465"
-  revision 20190209
+  version "1.15.0-20190209"
+  revision 1
 
   depends_on "gcc-m6809"
 
@@ -43,8 +44,8 @@ class LibcM6809 < Formula
       system "sh", "newlib.6809", "install"
     end
 
-    (lib/target).install_symlink prefix/target/"lib"
-
-    (include/target).install_symlink prefix/target/"include"
+    # Move libraries and headers to where gcc-m6809 can refer.
+    (lib/target/"lib").install Dir[prefix/target/"lib/*"]
+    (include/target/"include").install Dir[prefix/target/"include/*"]
   end
 end
