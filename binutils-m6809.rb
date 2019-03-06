@@ -4,15 +4,11 @@ class BinutilsM6809 < Formula
   url "https://ftpmirror.gnu.org/gcc/gcc-4.3.6/gcc-4.3.6.tar.bz2"
   sha256 "f3765cd4dcceb4d42d46f0d53471d7cedbad50f2112f0312c1dcc9c41eea9810"
   version "5.1.1"
-  revision 20190224
+  revision 20190307
 
   patch do
-    url "https://gitlab.com/tgtakaoka/gcc6809/raw/gcc6809-patch/gcc6809-4.3.6-dftools-20190210.patch.gz"
-    sha256 "54dabbbbca87f08aeb5ebe056baec53145dc2358df5b6e420cc4867e89be7ce6"
-  end
-  patch do
-    url "https://gitlab.com/tgtakaoka/gcc6809/raw/gcc6809-patch/binutils-m6809-ld-20190224-L-fix.patch"
-    sha256 "5c933c88cc7c2d68ae625ae6e6a6131025f92f75039618449f9ff7f33c9f5cf4"
+    url "https://gitlab.com/tgtakaoka/gcc6809/raw/gcc6809-patch/gcc6809-4.3.6-dftools-20190307.patch.gz"
+    sha256 "739b751e7dd6b2dc9f8552f6835758559ee0e4b3cd3e53ed06de2c9d28113de2"
   end
 
   def install
