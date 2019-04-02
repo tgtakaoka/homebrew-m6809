@@ -14,8 +14,8 @@ To get everything, execute the following commands.
 
 Version:
 
-    binutils-m6809-5.1.1-20190307_1
-    gcc-m6809-4.3.6-20190308_1
+    binutils-m6809-5.1.1-20190307_2
+    gcc-m6809-4.3.6-20190308_2
     libc-m6809-1.15.0-20190209_1
     gdb-m6809-7.6.2-20190223_1
 

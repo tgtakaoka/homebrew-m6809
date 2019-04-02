@@ -4,7 +4,7 @@ class BinutilsM6809 < Formula
   url "https://ftpmirror.gnu.org/gcc/gcc-4.3.6/gcc-4.3.6.tar.bz2"
   sha256 "f3765cd4dcceb4d42d46f0d53471d7cedbad50f2112f0312c1dcc9c41eea9810"
   version "5.1.1-20190307"
-  revision 1
+  revision 2
 
   patch do
     url "https://gitlab.com/tgtakaoka/gcc6809/raw/gcc6809-patch/gcc6809-4.3.6-dftools-20190307.patch.gz"
@@ -32,7 +32,7 @@ class BinutilsM6809 < Formula
     inreplace bin/"#{target}-ar", "bindir=${as_prefix}/bin", "bindir=#{target_bin}"
 
     # Create empty place holders for gcc-m6809 and libc-m6809.
-    (lib/target/"lib/.#{name}").write ''
-    (include/target/"include/.#{name}").write ''
+    (HOMEBREW_PREFIX/"lib/#{target}/lib").mkpath
+    (HOMEBREW_PREFIX/"include/#{target}/include").mkpath
   end
 end
